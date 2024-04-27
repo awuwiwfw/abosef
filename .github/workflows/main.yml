@@ -1,0 +1,25 @@
+name: Run Telegram Bot
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Python
+        run: |
+          sudo apt-get update
+          sudo apt-get install python3-pip
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Telegram Bot
+        run: |
+          python3 55main.py
